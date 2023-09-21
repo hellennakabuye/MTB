@@ -58,12 +58,12 @@ def sequence_extract_fastq(fastq_file):
 def fastq_files(sequence):
     code = subprocess.run('TB_APP/file.sh', shell=True)
 
-    df = pd.read_csv('/home/nakabuye/Desktop/mytb/tbone/media/result.csv', usecols=["sample", "drug", "susceptibility"])
+    df = pd.read_csv('/media/result.csv', usecols=["sample", "drug", "susceptibility"])
     html_string = df.to_html()
     print(df)
     print(html_string)
 
-    pdfkit.from_string(html_string, "/home/nakabuye/Desktop/mtb_file.pdf")
+    pdfkit.from_string(html_string, "/mtb_file.pdf")
     print("PDF file saved.")
     return code, df
 
